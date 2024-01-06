@@ -269,11 +269,8 @@ html body {
 .formacoes {
   background: black;
   margin: 0 auto;
-  padding: 3.75rem 12.625rem;
+  padding: 3.75rem 2rem;
   text-align: center;
-  width: 100vw;
-  position: relative;
-  right: calc(100vw - 87.5vw);
 }
 
 .formacoes .formacoes__titulo {
@@ -414,4 +411,11 @@ html body {
   font-weight: 800;
   line-height: 3.5rem;
   letter-spacing: -0.06rem; 
+}
+
+#projetos {
+  background: black;
+  color: white;
+  margin: 0 auto;
+  padding: 3.75rem 2rem;
 }
