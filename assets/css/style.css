@@ -265,3 +265,118 @@ html body {
   line-height: 3.5rem;
   letter-spacing: -0.06rem; 
 }
+
+.formacoes {
+  background: black;
+  margin: 0 auto;
+  padding: 3.75rem 12.625rem;
+  text-align: center;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+}
+
+.formacoes .formacoes__titulo {
+  color: white;
+  padding: 1.25rem 0;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.5rem;
+  letter-spacing: -0.06rem; 
+}
+
+.formacoes__titulo .formacoes__titulo-fw800 {
+  color: white;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 3.5rem;
+  letter-spacing: -0.06rem; 
+}
+
+.formacoes .formacoes__container {
+  display: flex;
+  padding: 2.5rem 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch; 
+}
+
+.formacoes .formacao {
+  display: flex;
+  padding: 1.875rem 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+  align-self: stretch; 
+
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+.formacao .formacao__header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+}
+
+.formacao__header .formacao__logo-uni {
+  background-image: url("./../img/unifatecie-logo.jpg"); 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  width: 2rem;
+  height: 2rem;
+}
+.formacao__header .formacao__logo-alu {
+  background-image: url("./../img/alura-logo.svg"); 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  width: 2rem;
+  height: 2rem;
+}
+.formacao__header .formacao__logo-sei {
+  background-image: url("./../img/senai-logo.svg"); 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  width: 2rem;
+  height: 2rem;
+}
+
+.formacao__header .formacao__titulo {
+  color: white;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.75rem;
+  letter-spacing: -0.03rem; 
+}
+
+.formacao__header .formacao__periodo {
+  align-self: flex-end;
+  color: #D4D4D8;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25rem;
+  letter-spacing: -0.02rem; 
+}
+
+.formacao .formacao__body p {
+  color: #D4D4D8;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0.02rem; 
+  text-align: start;
+}
