@@ -395,8 +395,11 @@ body .principal .outlined {
   padding: 3.75rem 2rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
+  gap: 4rem;
+}
+
+.sobreMim .sobreMim__imagem img {
+  width: 31.483vw; 
 }
 
 .sobreMim .sobreMim-container {
@@ -409,7 +412,7 @@ body .principal .outlined {
 
 .sobreMim .sobreMim__titulo {
   color: black;
-  padding: 1.25rem 0;
+  padding: 1.25rem 0 0 0;
   font-size: 3rem;
   font-style: normal;
   font-weight: 400;
@@ -424,6 +427,15 @@ body .principal .outlined {
   font-weight: 800;
   line-height: 3.5rem;
   letter-spacing: -0.06rem; 
+}
+
+.sobreMim-container p {
+  color: #71717A;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0.32px; 
 }
 
 #projetos {
