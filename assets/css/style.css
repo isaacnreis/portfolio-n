@@ -433,7 +433,7 @@ body .principal .outlined {
 }
 
 .projetos .projetos__titulo {
-  color: color;
+  color: white;
   padding: 1.25rem 0;
   font-size: 3rem;
   font-style: normal;
@@ -444,7 +444,7 @@ body .principal .outlined {
 }
 
 .projetos__titulo .projetos__titulo-fw800 {
-  color: color;
+  color: white;
   font-size: 3rem;
   font-style: normal;
   font-weight: 800;
@@ -649,6 +649,25 @@ body .principal .outlined {
 
 .form__container .form__submitButton:hover {
   filter: invert();
+}
+
+.form__container .form__submitButton:disabled {
+  opacity: 0.5;
+}
+
+.success,
+.error {
+  color: greenyellow;
+  width: 500px;
+  text-align: center;
+}
+
+.success {
+  color: greenyellow;
+}
+
+.error {
+  color: tomato;
 }
 
 .contato .contato__info {

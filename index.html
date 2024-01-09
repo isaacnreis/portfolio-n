@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/app.js"></script>
 </head>
 <body>
 
@@ -251,14 +252,15 @@
     <section class="contato" id="contato">
       <div class="form__container">
         <form
-          action="https://formsubmit.co/ajax/isaacnreis@gmail.com"
+          action="https://formsubmit.co/ajax/isaacreisn@gmail.com"
           method="POST"
           data-form
         >
-          <input type="text" name="nome" id="nome" placeholder="Seu nome" required />
-          <input type="email" name="email" id="email" placeholder="Email" required />
-          <input type="text" name="site" id="site" placeholder="Seu site (Se existir)" />
-          <textarea name="mensagem" id="mensagem" placeholder="Como posso te ajudar" required></textarea>
+          <input type="text" name="nome" id="nome" placeholder="Seu nome*" required/>
+          <input type="email" name="email" id="email" placeholder="Email*" required/>
+          <input type="text" name="site" id="site" placeholder="Seu site (Se existir)"/>
+          <textarea name="mensagem" id="mensagem" placeholder="Como posso te ajudar*" required></textarea>
+          <span style="font-size: 0.875rem; color: #71717A;">*Campos obrigatórios</span>
           <div class="form__submitButton-container">
             <button class="form__submitButton" type="submit" data-button>Enviar</button>
             <ul class="banner__redes form__submitButton__redes">
@@ -298,6 +300,5 @@
         </svg> Modelo Figma</a>
     </div>
   </footer>
-
 </body>
 </html>
