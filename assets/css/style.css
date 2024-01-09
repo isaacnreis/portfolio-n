@@ -10,6 +10,14 @@ ul li {
   list-style: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+:target {
+  scroll-margin-top: .8em;
+}
+
 html body {
   max-width: 1440px;
   margin: 0 auto;
@@ -129,7 +137,7 @@ html body {
   letter-spacing: -0.06rem; 
 }
 
-.banner__titulo .banner__titulo-fw800.outlined {
+body .principal .outlined {
   color: white;
   text-shadow:
     1.41px 1.41px black,
@@ -178,12 +186,7 @@ html body {
 
 .banner__redes .banner__redes-icon {
   width: 1.25rem;
-  height: 1.25rem; 
-}
-
-.banner__redes .banner__redes-gitHub {
-  width: 1.5rem;
-  height: 1.5rem; 
+  height: 1.25rem;
 }
 
 .banner__redes .banner__redes-link:has(> .banner__redes-facebook) {
@@ -551,4 +554,143 @@ html body {
 
 .projeto__linksContainer .projeto__link:hover {
   scale: 1.05;
+}
+
+#contato {
+  display: flex;
+  padding: 3.75rem 2rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6rem;
+}
+
+.contato .form__container {
+  padding: 1.25rem 0;
+}
+
+.form__container form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  align-self: stretch; 
+}
+
+.form__container form input {
+  border-radius: 4px;
+  border: 1.4px solid black;
+
+  display: flex;
+  width: 500px;
+  height: 56px;
+  padding: 1rem 1.5rem;
+  align-items: center;
+
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: -0.32px; 
+}
+
+.form__container form textarea {
+  border-radius: 4px;
+  border: 1.4px solid black;
+  resize: none;
+
+  display: flex;
+  width: 500px;
+  height: 140px;
+  padding: 1rem 1.5rem;
+  align-items: flex-start; 
+
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: -0.32px; 
+}
+
+.form__container .form__submitButton {
+  border-radius: 4px;
+  border: 2px solid white;
+  background: black;
+  cursor: pointer;
+
+  color: white;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: 0.4px; 
+
+  display: flex;
+  padding: 1rem 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.form__container form .form__submitButton-container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.form__container form .form__submitButton__redes {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.form__container .form__submitButton:hover {
+  filter: invert();
+}
+
+.contato .contato__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex: 1 0 0;
+  align-self: stretch; 
+}
+
+.contato__info-titulos .contato__info__titulo {
+  font-size: 2.75rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 3.5rem;
+  letter-spacing: -0.96px; 
+}
+
+.contato__info-descricao p {
+  color: #71717A;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0.32px;
+  margin-bottom: 1.25rem;
+}
+
+.contato__info .contato__info-meios {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch; 
+}
+
+.contato__info-meios h3 {
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2rem;
+  letter-spacing: -0.56px; 
 }
