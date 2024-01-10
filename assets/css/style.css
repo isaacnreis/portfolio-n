@@ -6,6 +6,10 @@
   font-family: 'Sora', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul li {
   list-style: none;
 }
@@ -52,7 +56,6 @@ html body {
   line-height: 1.5rem;
   letter-spacing: -0.025rem;
   text-transform: capitalize; 
-  text-decoration: none;
   transition: all .3s ease-in-out;
 }
 
@@ -493,6 +496,14 @@ body .principal .outlined {
   transition: all 1s ease-in-out;
 }
 
+.projeto .projeto__imagemContainer.projeto-01 {
+  background: url("../img/projeto-01.png") no-repeat center / cover;
+}
+
+.projeto .projeto__imagemContainer.projeto-02 {
+  background: url("../img/projeto-02.png") no-repeat center / cover;
+}
+
 .projeto .projeto__imagemContainer:hover {
   animation: pulse 2.2s infinite ease-in-out;
 }
@@ -560,7 +571,6 @@ body .principal .outlined {
 }
 
 .projeto__linksContainer .projeto__link {
-  text-decoration: none;
   color: white;
   transition: all 0.3s ease-in-out;
 }
