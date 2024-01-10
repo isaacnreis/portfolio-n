@@ -771,3 +771,27 @@ body .principal .outlined {
 .rodape .rodape__linkFigma:hover {
   scale: 1.05;
 }
+
+@media screen and (max-width: 1280px) {
+  
+}
+
+@media screen and (max-width: 1024px) {
+  
+}
+
+@media screen and (max-width: 768px) {
+  
+}
+
+@media screen and (max-width: 640px) {
+  
+}
+
+@media screen and (max-width: 576px) {
+  
+}
+
+@media screen and (max-width: 480px) {
+  
+}
