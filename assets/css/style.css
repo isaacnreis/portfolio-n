@@ -107,6 +107,10 @@ html body {
   background-size: contain;
 }
 
+.banner .banner__imagem {
+  display: none;
+}
+
 .banner .banner__textos {
   height: 100%;
 
@@ -785,7 +789,78 @@ body .principal .outlined {
 }
 
 @media screen and (max-width: 640px) {
+  html body {
+    padding: 0 2rem;
+  }
+
+  .cabecalho {
+    padding: 1rem 0;
+  }
+
+  .cabecalho .cabecalho__nav,
+  .cabecalho .cabecalho__botao-container {
+    display: none;
+  }
+
+  .banner {
+    height: auto;
+    background-image: none;
+    flex-direction: column;
+    padding: 2.5rem 0;
+  }
+
+  .banner .banner__imagem {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .banner__titulo .banner__titulo-fw400 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.035rem; 
+  }
   
+  .banner__titulo .banner__titulo-fw800 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.035rem; 
+  }
+
+  .banner__textos .banner__descricao {
+    width: 100%;
+  }
+
+  .banner__textos .banner__redes {
+    position: static;
+  }
+
+  .skills {
+    padding: 2.5rem 0;
+  }
+
+  .skills .skills__titulo {
+    padding: 1.25rem 0;
+  }
+
+  .skills .skills__titulo {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.56px; 
+  }
+  
+  .skills__titulo .skills__titulo-fw800 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.56px; 
+  }
+
+  .skills .skills__cards {
+    justify-content: space-evenly;
+    padding: 1.25rem 0 0 0;
+    gap: 1.25rem;
+  }
+
 }
 
 @media screen and (max-width: 576px) {
@@ -794,4 +869,8 @@ body .principal .outlined {
 
 @media screen and (max-width: 480px) {
   
+}
+
+@media screen and (max-width: 375px) {
+
 }
