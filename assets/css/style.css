@@ -91,6 +91,14 @@ html body {
   letter-spacing: 0.025rem;
 }
 
+.cabecalho .cabecalho__menu-mobile {
+  display: none;
+}
+
+.cabecalho__menu-mobile .cabecalho__menu-mobile--nav {
+  display: none;
+}
+
 .banner {
   display: flex;
   flex-direction: row;
@@ -776,6 +784,28 @@ body .principal .outlined {
   scale: 1.05;
 }
 
+@keyframes show {
+  0% {
+    margin-right: -80vw;
+    background-color: white;
+  }
+  100% {
+    margin-right: 0;
+    background-color: black;
+  }
+}
+
+@keyframes desaparecer {
+  0% {
+    margin-right: 0;
+    background-color: black;
+  }
+  100% {
+    margin-right: -90vw;
+    background-color: white;
+  }
+}
+
 @media screen and (max-width: 1280px) {
   
 }
@@ -800,6 +830,50 @@ body .principal .outlined {
   .cabecalho .cabecalho__nav,
   .cabecalho .cabecalho__botao-container {
     display: none;
+  }
+
+  .cabecalho .cabecalho__menu-mobile {
+    display: inline-block;
+  }
+
+  .cabecalho .cabecalho__menu-mobile svg {
+    width: 36px;
+    height: 36px;
+
+    cursor: pointer;
+  }
+
+  .cabecalho .cabecalho__menu-mobile:hover .cabecalho__menu-mobile--nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    animation: show .6s normal ease-in-out;
+    background: black;
+    position: fixed;
+    box-shadow: -20px 0px 40px 120px #00000073;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    width: 80vw;
+    height: 100vh;
+  }
+
+  .cabecalho__menu-mobile--nav .cabecalho__navMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cabecalho__navMobile .cabecalho__navMobilelink {
+    color: white;
+    font-family: Sora;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    letter-spacing: -0.4px;
+    text-transform: capitalize; 
   }
 
   .banner {
