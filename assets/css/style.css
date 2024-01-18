@@ -811,7 +811,8 @@ body .principal .outlined {
 
   .banner .banner__imagem {
     display: inline-block;
-    width: 100%;
+    align-self: center;
+    width: 90%;
     margin-bottom: 3rem;
   }
 
@@ -859,6 +860,140 @@ body .principal .outlined {
     justify-content: space-evenly;
     padding: 1.25rem 0 0 0;
     gap: 1.25rem;
+  }
+
+  .formacoes {
+    padding: 2.5rem 1rem;
+  }
+
+  .formacoes .formacoes__titulo {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.56px; 
+  }
+  
+  .formacoes__titulo .formacoes__titulo-fw800 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.56px; 
+  }
+  
+  .formacao .formacao__header {
+    flex-direction: column;
+  }
+
+  .formacao__header .formacao__titulo {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    letter-spacing: -0.4px; 
+  }
+
+  .formacao__header .formacao__periodo {
+    margin: 1rem 0;
+    align-self: flex-start;
+  }
+
+  #sobreMim {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .sobreMim .sobreMim__imagem img {
+    width: 100%;
+  }
+
+  .sobreMim .sobreMim__titulo {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.56px; 
+  }
+  
+  .sobreMim__titulo .sobreMim__titulo-fw800 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.56px; 
+  }
+
+  #projetos {
+    flex-direction: column;
+    padding: 2.5rem 1rem;
+  }
+
+  .projetos .projetos__titulo {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.56px; 
+  }
+  
+  .projetos__titulo .projetos__titulo-fw800 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.56px; 
+  }
+
+  .projetos .projetos__container {
+    padding: 1.25rem 0;
+    gap: 1.75rem;
+  }
+
+  .projetos__container .projeto {
+    flex-direction: column;
+    padding: 0;
+    gap: 1.75rem;
+  }
+
+  .projetos__container .projeto:nth-child(2n) {
+    flex-direction: column-reverse;
+  }
+
+  .projeto__textoContainer .projeto__numero {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    letter-spacing: -0.48px; 
+  }
+
+  .projeto__textoContainer .projeto__titulo {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    letter-spacing: -0.4px; 
+  }
+
+  .projeto .projeto__imagemContainer {
+    width: 80vw;
+    height: 40vh;
+  }
+
+  #contato {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 2.5rem 1rem;
+  }
+
+  .form__submitButton-container .form__submitButton {
+    font-size: 1rem;
+  }
+
+  .contato .contato__info {
+    gap: 2rem;
+  }
+
+  .contato__info-titulos .contato__info__titulo {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -0.56px; 
+  }
+
+  .contato__info .contato__info-meios h3 {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    letter-spacing: -0.4px; 
+  }
+
+  #rodape {
+    position: absolute;
+    left: 0;
+    width: 95vw;
+    padding: 1.25rem 1rem;
   }
 
 }
