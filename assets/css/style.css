@@ -844,7 +844,6 @@ body .principal .outlined {
   }
 
   .cabecalho .cabecalho__menu-mobile:hover .cabecalho__menu-mobile--nav {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -855,15 +854,29 @@ body .principal .outlined {
     box-shadow: -20px 0px 40px 120px #00000073;
     top: 0;
     right: 0;
-    z-index: 3;
-    width: 80vw;
+    z-index: 5;
+    gap: 8rem;
+    width: 100vw;
     height: 100vh;
   }
 
   .cabecalho__menu-mobile--nav .cabecalho__navMobile {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .cabecalho__menu-mobile .cabecalho__menu-mobile--fechar {
+    background: white;
+    border: 2px solid black;
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 0.25rem; 
+    cursor: pointer;
+    padding: 1rem 1.25rem;
   }
 
   .cabecalho__navMobile .cabecalho__navMobilelink {
