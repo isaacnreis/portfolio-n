@@ -1079,20 +1079,112 @@ body .principal .outlined {
   #rodape {
     position: absolute;
     left: 0;
-    width: 95vw;
+    width: 98vw;
     padding: 1.25rem 1rem;
   }
 
 }
 
 @media screen and (max-width: 576px) {
-  
+  html body {
+    padding: 0 1rem;
+  }
+
+  .skills__cards .skills__card {
+    width: 156px;
+    height: 156px;
+    gap: 1rem;
+  }
+
+  .form__container form input,
+  .form__container form textarea {
+    width: 80vw;
+  }
+
+  .form__container form .form__submitButton-container {
+    gap: 0.5rem;
+  }
+
+  .form__container form .form__submitButton__redes {
+    gap: 0.5rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  
+  html body {
+    padding: 0 0.5rem;
+  }
+
+  .banner__textos .banner__redes {
+    gap: 1.5rem;
+    width: 80%;
+  }
+
+  .projeto .projeto__imagemContainer {
+    width: 90vw;
+    height: 40vh;
+  }
+
+  .form__container form .form__submitButton-container {
+    flex-direction: column;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (max-width: 375px) {
+  html body {
+    padding: 0 0.25rem;
+  }
 
+  .banner__textos .banner__redes {
+    gap: 1rem;
+    width: 90%;
+  }
+
+  .projeto .projeto__imagemContainer {
+    height: 30vh;
+  }
+
+  #rodape {
+    width: 99vw;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  html body {
+    padding: 0;
+  }
+
+  .banner .banner__imagem {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+
+  .banner .banner__titulo {
+    gap: 0.5rem;
+  }
+
+  .banner__titulo div {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner__textos .banner__redes {
+    gap: 1rem;
+    width: 50%;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  .formacao__header div {
+    flex-direction: column;
+  }
+
+  .projeto .projeto__imagemContainer {
+    height: 20vh;
+  }
+
+  #rodape {
+    width: 99vw;
+  }
 }
