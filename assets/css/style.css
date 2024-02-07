@@ -807,24 +807,128 @@ body .principal .outlined {
 }
 
 @media screen and (max-width: 1280px) {
-  
+  html body {
+    padding: 0 4rem;
+  }
+
+  .skills .skills__cards {
+    gap: 1rem;
+  }
+
+  .skills__cards .skills__card {
+    width: 166px;
+    height: 176px;
+    gap: 2rem;
+  }
+
+  .projeto .projeto__imagemContainer {
+    width: 45vw;
+    height: 35vw;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-  
+  html body {
+    padding: 0 3rem;
+  }
+
+  .banner {
+    padding: 3.75rem 0;
+    height: 40.25rem;
+    background-size: contain;
+    background-image: none;
+  }
+
+  .banner .banner__imagem {
+    display: inline-block;
+    width: 65vw;
+    position: absolute;
+    margin-top: 12rem;
+    right: 5vw;
+  }
+
+  .skills .skills__cards {
+    justify-content: flex-start;
+    gap: 3.1rem;
+  }
+
+  .projeto .projeto__imagemContainer {
+    width: 35vw;
+    height: 30vw;
+  }
+
+  #contato {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  #rodape {
+    padding: 1.5rem 5rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  
-}
-
-@media screen and (max-width: 640px) {
   html body {
     padding: 0 2rem;
   }
 
+  .banner .banner__imagem {
+    display: none;
+  }
+
+  .cabecalho {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .banner {
+    padding: 2rem 0;
+    height: auto;
+    background-image: none;
+  }
+
+  .banner__textos .banner__descricao {
+    width: auto;
+  }
+
+  .banner .banner__textos {
+    height: auto;
+  }
+
+  .skills__cards .skills__card {
+    width: 28%;
+    height: 186px;
+  }
+
+  #projetos {
+    padding: 3rem 0.5rem;
+  }
+
+  .projetos .projetos__container {
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .projetos__container .projeto {
+    gap: 1rem;
+  }
+
+  .projeto .projeto__imagemContainer {
+    width: 40.5vw;
+    height: 30.5vw;
+  }
+
+  #contato {
+    padding: 3rem 1.5rem;
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
   .cabecalho {
     padding: 1rem 0;
+    flex-direction: row;
   }
 
   .cabecalho .cabecalho__nav,
@@ -901,6 +1005,8 @@ body .principal .outlined {
     align-self: center;
     width: 90%;
     margin-bottom: 3rem;
+    position: static;
+    margin-top: 0;
   }
 
   .banner__titulo .banner__titulo-fw400 {
@@ -941,6 +1047,11 @@ body .principal .outlined {
     font-size: 1.75rem;
     line-height: 2rem;
     letter-spacing: -0.56px; 
+  }
+
+  .skills__cards .skills__card {
+    width: 186px;
+    height: 186px;
   }
 
   .skills .skills__cards {
@@ -1145,6 +1256,11 @@ body .principal .outlined {
     height: 30vh;
   }
 
+  .skills__cards .skills__card {
+    width: 142px;
+    height: 142px;
+  }
+
   #rodape {
     width: 99vw;
   }
@@ -1174,6 +1290,11 @@ body .principal .outlined {
     width: 50%;
     flex-wrap: wrap;
     margin: 0 auto;
+  }
+
+  .skills__cards .skills__card {
+    width: 112px;
+    height: 112px;
   }
 
   .formacao__header div {
