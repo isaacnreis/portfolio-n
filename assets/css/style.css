@@ -516,6 +516,14 @@ body .principal .outlined {
   background: url("../img/projeto-02.png") no-repeat center / cover;
 }
 
+.projeto .projeto__imagemContainer.projeto-03 {
+  background: url("../img/projeto-03.png") no-repeat center / cover;
+}
+
+.projeto .projeto__imagemContainer.projeto-04 {
+  background: url("../img/projeto-04.png") no-repeat center / cover;
+}
+
 .projeto .projeto__imagemContainer:hover {
   animation: pulse 2.2s infinite ease-in-out;
 }
