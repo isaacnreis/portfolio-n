@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   border: 0;
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
 }
 
 a {
@@ -20,13 +20,24 @@ html {
 }
 
 :target {
-  scroll-margin-top: .8em;
+  scroll-margin-top: 0.8em;
 }
 
 html body {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 6rem;
+}
+
+.animate {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.6s ease-out;
+}
+
+.animate.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .cabecalho {
@@ -45,7 +56,7 @@ html body {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
 
 .cabecalho__nav .cabecalho__link {
@@ -55,8 +66,8 @@ html body {
   font-weight: 600;
   line-height: 1.5rem;
   letter-spacing: -0.025rem;
-  text-transform: capitalize; 
-  transition: all .3s ease-in-out;
+  text-transform: capitalize;
+  transition: all 0.3s ease-in-out;
 }
 
 .cabecalho__nav .cabecalho__link:hover {
@@ -66,14 +77,14 @@ html body {
 .cabecalho .cabecalho__botao-container {
   background: black;
   border: 2px solid white;
-  border-radius: 0.25rem; 
+  border-radius: 0.25rem;
   cursor: pointer;
   display: flex;
   padding: 1rem 1.25rem;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem; 
-  transition: all .3s ease-in-out;
+  gap: 0.5rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .cabecalho .cabecalho__botao-container:hover {
@@ -108,7 +119,7 @@ html body {
 
   height: 37.25rem;
 
-  background-image: url("./../img/boy3.svg"); 
+  background-image: url("./../img/boy3.svg");
   background-color: white;
   background-position: right;
   background-repeat: no-repeat;
@@ -141,7 +152,7 @@ html body {
   font-style: normal;
   font-weight: 400;
   line-height: 3.5rem;
-  letter-spacing: -0.06rem; 
+  letter-spacing: -0.06rem;
 }
 
 .banner__titulo .banner__titulo-fw800 {
@@ -150,30 +161,24 @@ html body {
   font-style: normal;
   font-weight: 800;
   line-height: 3.5rem;
-  letter-spacing: -0.06rem; 
+  letter-spacing: -0.06rem;
 }
 
 body .principal .outlined {
   color: white;
-  text-shadow:
-    1.41px 1.41px black,
-    2px 0 black,
-    1.41px -1.41px black,
-    0 -2px black,
-    -1.41px -1.41px black,
-    -2px 0 black,
-    -1.41px 1.41px black,
+  text-shadow: 1.41px 1.41px black, 2px 0 black, 1.41px -1.41px black,
+    0 -2px black, -1.41px -1.41px black, -2px 0 black, -1.41px 1.41px black,
     0 2px black;
 }
 
 .banner__textos .banner__descricao {
   align-self: stretch;
-  color: #71717A;
+  color: #71717a;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5rem;
-  letter-spacing: 0.02rem; 
+  letter-spacing: 0.02rem;
   width: 32vw;
 }
 
@@ -186,7 +191,7 @@ body .principal .outlined {
 
   position: relative;
   left: 0;
-  bottom: -80px; 
+  bottom: -80px;
 }
 
 .banner__redes .banner__redes-link {
@@ -197,7 +202,7 @@ body .principal .outlined {
   padding: 1rem;
   justify-content: center;
   align-items: center;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .banner__redes .banner__redes-icon {
@@ -237,7 +242,7 @@ body .principal .outlined {
 .skills__cards .skills__card {
   border-radius: 0.25rem;
   border: 2px solid black;
-  background: white; 
+  background: white;
   cursor: crosshair;
 
   display: flex;
@@ -247,7 +252,7 @@ body .principal .outlined {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .skills__cards .skills__card:hover {
@@ -256,7 +261,7 @@ body .principal .outlined {
 }
 
 .skills__card .skills__cardTitulo {
-  align-self: stretch; 
+  align-self: stretch;
   color: black;
   text-align: center;
   font-size: 1.25rem;
@@ -264,7 +269,7 @@ body .principal .outlined {
   font-weight: 700;
   line-height: 1.5rem;
   letter-spacing: -0.025;
-  text-transform: capitalize; 
+  text-transform: capitalize;
 }
 
 .skills .skills__titulo {
@@ -273,7 +278,7 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 400;
   line-height: 3.5rem;
-  letter-spacing: -0.06rem; 
+  letter-spacing: -0.06rem;
 }
 
 .skills__titulo .skills__titulo-fw800 {
@@ -282,7 +287,7 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 800;
   line-height: 3.5rem;
-  letter-spacing: -0.06rem; 
+  letter-spacing: -0.06rem;
 }
 
 .formacoes {
@@ -299,7 +304,7 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 400;
   line-height: 3.5rem;
-  letter-spacing: -0.06rem; 
+  letter-spacing: -0.06rem;
 }
 
 .formacoes__titulo .formacoes__titulo-fw800 {
@@ -308,7 +313,7 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 800;
   line-height: 3.5rem;
-  letter-spacing: -0.06rem; 
+  letter-spacing: -0.06rem;
 }
 
 .formacoes .formacoes__container {
@@ -317,7 +322,7 @@ body .principal .outlined {
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
-  align-self: stretch; 
+  align-self: stretch;
 }
 
 .formacoes .formacao {
@@ -327,7 +332,7 @@ body .principal .outlined {
   flex-direction: column;
   align-items: flex-start;
   gap: 1.75rem;
-  align-self: stretch; 
+  align-self: stretch;
   background: black;
 
   border-radius: 10px;
@@ -350,7 +355,7 @@ body .principal .outlined {
 }
 
 .formacao__header .formacao__logo-uni {
-  background-image: url("./../img/unifatecie-logo.jpg"); 
+  background-image: url("./../img/unifatecie-logo.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -359,7 +364,7 @@ body .principal .outlined {
   height: 2rem;
 }
 .formacao__header .formacao__logo-alu {
-  background-image: url("./../img/alura-logo.svg"); 
+  background-image: url("./../img/alura-logo.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -368,7 +373,7 @@ body .principal .outlined {
   height: 2rem;
 }
 .formacao__header .formacao__logo-sei {
-  background-image: url("./../img/senai-logo.svg"); 
+  background-image: url("./../img/senai-logo.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -383,26 +388,26 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 600;
   line-height: 1.75rem;
-  letter-spacing: -0.03rem; 
+  letter-spacing: -0.03rem;
 }
 
 .formacao__header .formacao__periodo {
   align-self: flex-end;
-  color: #D4D4D8;
+  color: #d4d4d8;
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: 1.25rem;
-  letter-spacing: -0.02rem; 
+  letter-spacing: -0.02rem;
 }
 
 .formacao .formacao__body p {
-  color: #D4D4D8;
+  color: #d4d4d8;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5rem;
-  letter-spacing: 0.02rem; 
+  letter-spacing: 0.02rem;
   text-align: start;
 }
 
@@ -414,7 +419,7 @@ body .principal .outlined {
 }
 
 .sobreMim .sobreMim__imagem img {
-  width: 31.483vw; 
+  width: 31.483vw;
 }
 
 .sobreMim .sobreMim-container {
@@ -432,7 +437,7 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 400;
   line-height: 3.5rem;
-  letter-spacing: -0.06rem; 
+  letter-spacing: -0.06rem;
 }
 
 .sobreMim__titulo .sobreMim__titulo-fw800 {
@@ -441,16 +446,16 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 800;
   line-height: 3.5rem;
-  letter-spacing: -0.06rem; 
+  letter-spacing: -0.06rem;
 }
 
 .sobreMim-container p {
-  color: #71717A;
+  color: #71717a;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5rem;
-  letter-spacing: 0.32px; 
+  letter-spacing: 0.32px;
 }
 
 #projetos {
@@ -477,7 +482,7 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 800;
   line-height: 3.5rem;
-  letter-spacing: -0.06rem; 
+  letter-spacing: -0.06rem;
 }
 
 .projetos .projetos__container {
@@ -492,13 +497,14 @@ body .principal .outlined {
   padding: 2.5rem 0;
   align-items: center;
   gap: 3.75rem;
-  align-self: stretch; 
+  align-self: stretch;
 }
 
 .projeto .projeto__imagemContainer {
   border-radius: 18.761px;
   background: url("../img/image\ 770.jpg"), lightgray 50% / cover no-repeat;
-  box-shadow: 0px 12px 42px -4px rgba(24, 39, 75, 0.12), 0px 8px 18px -6px rgba(24, 39, 75, 0.12);
+  box-shadow: 0px 12px 42px -4px rgba(24, 39, 75, 0.12),
+    0px 8px 18px -6px rgba(24, 39, 75, 0.12);
 
   width: 530px;
   height: 397.735px;
@@ -524,31 +530,35 @@ body .principal .outlined {
   background: url("../img/projeto-04.png") no-repeat center / cover;
 }
 
+.projeto .projeto__imagemContainer.projeto-git {
+  background: url("../img/github-mark-white.svg") no-repeat center / cover;
+}
+
 .projeto .projeto__imagemContainer:hover {
   animation: pulse 2.2s infinite ease-in-out;
 }
 
 @keyframes pulse {
-	0% {
-		transform: scale(1);
+  0% {
+    transform: scale(1);
     position: relative;
     bottom: 0;
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-	}
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
 
-	60% {
-		transform: scale(1.04);
+  60% {
+    transform: scale(1.04);
     position: relative;
     bottom: 1rem;
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-	}
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
 
-	100% {
-		transform: scale(1);
+  100% {
+    transform: scale(1);
     position: relative;
     bottom: 0;
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-	}
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 
 .projeto .projeto__textoContainer {
@@ -563,7 +573,7 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 800;
   line-height: 3.5rem;
-  letter-spacing: -0.96px; 
+  letter-spacing: -0.96px;
 }
 
 .projeto__textoContainer .projeto__titulo {
@@ -571,16 +581,16 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 700;
   line-height: 2.5rem;
-  letter-spacing: -0.64px; 
+  letter-spacing: -0.64px;
 }
 
 .projeto__textoContainer .projeto__descricao {
-  color: #71717A;
+  color: #71717a;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5rem;
-  letter-spacing: 0.32px; 
+  letter-spacing: 0.32px;
 }
 
 .projeto .projeto__linksContainer {
@@ -617,7 +627,7 @@ body .principal .outlined {
   flex-direction: column;
   align-items: flex-start;
   gap: 1.25rem;
-  align-self: stretch; 
+  align-self: stretch;
 }
 
 .form__container form input {
@@ -630,12 +640,12 @@ body .principal .outlined {
   padding: 1rem 1.5rem;
   align-items: center;
 
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.25rem;
-  letter-spacing: -0.32px; 
+  letter-spacing: -0.32px;
 }
 
 .form__container form textarea {
@@ -647,14 +657,14 @@ body .principal .outlined {
   width: 500px;
   height: 140px;
   padding: 1rem 1.5rem;
-  align-items: flex-start; 
+  align-items: flex-start;
 
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.25rem;
-  letter-spacing: -0.32px; 
+  letter-spacing: -0.32px;
 }
 
 .form__container .form__submitButton {
@@ -668,7 +678,7 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 600;
   line-height: 1.5rem;
-  letter-spacing: 0.4px; 
+  letter-spacing: 0.4px;
 
   display: flex;
   padding: 1rem 1.25rem;
@@ -720,7 +730,7 @@ body .principal .outlined {
   align-items: flex-start;
   gap: 1.25rem;
   flex: 1 0 0;
-  align-self: stretch; 
+  align-self: stretch;
 }
 
 .contato__info-titulos .contato__info__titulo {
@@ -728,11 +738,11 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 800;
   line-height: 3.5rem;
-  letter-spacing: -0.96px; 
+  letter-spacing: -0.96px;
 }
 
 .contato__info-descricao p {
-  color: #71717A;
+  color: #71717a;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -746,7 +756,7 @@ body .principal .outlined {
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  align-self: stretch; 
+  align-self: stretch;
 }
 
 .contato__info-meios h3 {
@@ -754,7 +764,7 @@ body .principal .outlined {
   font-style: normal;
   font-weight: 600;
   line-height: 2rem;
-  letter-spacing: -0.56px; 
+  letter-spacing: -0.56px;
 }
 
 #rodape {
@@ -776,7 +786,8 @@ body .principal .outlined {
   height: 3.5rem;
 }
 
-.rodape .rodape__linkFigma, .rodape h4 {
+.rodape .rodape__linkFigma,
+.rodape h4 {
   color: white;
   text-align: right;
   font-size: 1rem;
@@ -960,7 +971,7 @@ body .principal .outlined {
     justify-content: center;
     align-items: center;
 
-    animation: show .6s normal ease-in-out;
+    animation: show 0.6s normal ease-in-out;
     background: black;
     position: fixed;
     box-shadow: -20px 0px 40px 120px #00000073;
@@ -986,7 +997,7 @@ body .principal .outlined {
     color: black;
     font-size: 1.25rem;
     font-weight: 600;
-    border-radius: 0.25rem; 
+    border-radius: 0.25rem;
     cursor: pointer;
     padding: 1rem 1.25rem;
   }
@@ -998,7 +1009,7 @@ body .principal .outlined {
     font-weight: 600;
     line-height: 1.5rem;
     letter-spacing: -0.4px;
-    text-transform: capitalize; 
+    text-transform: capitalize;
   }
 
   .banner {
@@ -1020,13 +1031,13 @@ body .principal .outlined {
   .banner__titulo .banner__titulo-fw400 {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.035rem; 
+    letter-spacing: -0.035rem;
   }
-  
+
   .banner__titulo .banner__titulo-fw800 {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.035rem; 
+    letter-spacing: -0.035rem;
   }
 
   .banner__textos .banner__descricao {
@@ -1048,13 +1059,13 @@ body .principal .outlined {
   .skills .skills__titulo {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.56px; 
+    letter-spacing: -0.56px;
   }
-  
+
   .skills__titulo .skills__titulo-fw800 {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.56px; 
+    letter-spacing: -0.56px;
   }
 
   .skills__cards .skills__card {
@@ -1075,15 +1086,15 @@ body .principal .outlined {
   .formacoes .formacoes__titulo {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.56px; 
+    letter-spacing: -0.56px;
   }
-  
+
   .formacoes__titulo .formacoes__titulo-fw800 {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.56px; 
+    letter-spacing: -0.56px;
   }
-  
+
   .formacao .formacao__header {
     flex-direction: column;
   }
@@ -1091,7 +1102,7 @@ body .principal .outlined {
   .formacao__header .formacao__titulo {
     font-size: 1.25rem;
     line-height: 1.5rem;
-    letter-spacing: -0.4px; 
+    letter-spacing: -0.4px;
   }
 
   .formacao__header .formacao__periodo {
@@ -1111,13 +1122,13 @@ body .principal .outlined {
   .sobreMim .sobreMim__titulo {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.56px; 
+    letter-spacing: -0.56px;
   }
-  
+
   .sobreMim__titulo .sobreMim__titulo-fw800 {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.56px; 
+    letter-spacing: -0.56px;
   }
 
   #projetos {
@@ -1128,13 +1139,13 @@ body .principal .outlined {
   .projetos .projetos__titulo {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.56px; 
+    letter-spacing: -0.56px;
   }
-  
+
   .projetos__titulo .projetos__titulo-fw800 {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.56px; 
+    letter-spacing: -0.56px;
   }
 
   .projetos .projetos__container {
@@ -1155,13 +1166,13 @@ body .principal .outlined {
   .projeto__textoContainer .projeto__numero {
     font-size: 1.5rem;
     line-height: 1.75rem;
-    letter-spacing: -0.48px; 
+    letter-spacing: -0.48px;
   }
 
   .projeto__textoContainer .projeto__titulo {
     font-size: 1.25rem;
     line-height: 1.5rem;
-    letter-spacing: -0.4px; 
+    letter-spacing: -0.4px;
   }
 
   .projeto .projeto__imagemContainer {
@@ -1186,13 +1197,13 @@ body .principal .outlined {
   .contato__info-titulos .contato__info__titulo {
     font-size: 1.75rem;
     line-height: 2rem;
-    letter-spacing: -0.56px; 
+    letter-spacing: -0.56px;
   }
 
   .contato__info .contato__info-meios h3 {
     font-size: 1.25rem;
     line-height: 1.5rem;
-    letter-spacing: -0.4px; 
+    letter-spacing: -0.4px;
   }
 
   #rodape {
@@ -1201,7 +1212,6 @@ body .principal .outlined {
     width: 98vw;
     padding: 1.25rem 1rem;
   }
-
 }
 
 @media screen and (max-width: 576px) {
