@@ -53,7 +53,6 @@ $(document).ready(() => {
     async sendForm(event) {
       try {
         if (this.checkFieldsSubmission()) {
-          console.log("Aqui");
           this.onSubmission(event);
           await fetch(this.url, {
             method: "POST",
