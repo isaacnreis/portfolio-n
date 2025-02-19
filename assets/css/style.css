@@ -530,6 +530,10 @@ body .principal .outlined {
   background: url("../img/projeto-04.png") no-repeat center / cover;
 }
 
+.projeto .projeto__imagemContainer.projeto-05 {
+  background: url("../img/projeto-05.png") no-repeat center / cover;
+}
+
 .projeto .projeto__imagemContainer.projeto-git {
   background: url("../img/github-mark-white.svg") no-repeat center / cover;
 }
