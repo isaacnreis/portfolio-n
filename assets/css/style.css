@@ -514,28 +514,33 @@ body .principal .outlined {
   transition: all 1s ease-in-out;
 }
 
-.projeto .projeto__imagemContainer.projeto-01 {
-  background: url("../img/projeto-01.png") no-repeat center / cover;
+.projeto .projeto__imagemContainer.projeto-encoderDecoder {
+  background: url("../img/projeto-encoderDecoder.png") no-repeat center / cover;
 }
 
-.projeto .projeto__imagemContainer.projeto-02 {
-  background: url("../img/projeto-02.png") no-repeat center / cover;
+.projeto .projeto__imagemContainer.projeto-orcamentoPessoal {
+  background: url("../img/projeto-orcamentoPessoal.png") no-repeat center /
+    cover;
 }
 
-.projeto .projeto__imagemContainer.projeto-03 {
-  background: url("../img/projeto-03.png") no-repeat center / cover;
+.projeto .projeto__imagemContainer.projeto-pokedex {
+  background: url("../img/projeto-pokedex.png") no-repeat center / cover;
 }
 
-.projeto .projeto__imagemContainer.projeto-04 {
-  background: url("../img/projeto-04.png") no-repeat center / cover;
+.projeto .projeto__imagemContainer.projeto-jogoDaVelha {
+  background: url("../img/projeto-jogoDaVelha.png") no-repeat center / cover;
 }
 
-.projeto .projeto__imagemContainer.projeto-05 {
-  background: url("../img/projeto-05.png") no-repeat center / cover;
+.projeto .projeto__imagemContainer.projeto-cineScope {
+  background: url("../img/projeto-cineScope.png") no-repeat center / cover;
 }
 
-.projeto .projeto__imagemContainer.projeto-06 {
-  background: url("../img/projeto-06.png") no-repeat center / cover;
+.projeto .projeto__imagemContainer.projeto-reactStore {
+  background: url("../img/projeto-reactStore.png") no-repeat center / cover;
+}
+
+.projeto .projeto__imagemContainer.projeto-vortexAdmin {
+  background: url("../img/projeto-vortexAdmin.png") no-repeat center / cover;
 }
 
 .projeto .projeto__imagemContainer.projeto-git {
