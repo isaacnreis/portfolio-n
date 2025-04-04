@@ -543,6 +543,10 @@ body .principal .outlined {
   background: url("../img/projeto-vortexAdmin.png") no-repeat center / cover;
 }
 
+.projeto .projeto__imagemContainer.projeto-doIt {
+  background: url("../img/projeto-doIt.png") no-repeat center / cover;
+}
+
 .projeto .projeto__imagemContainer.projeto-git {
   background: url("../img/github-mark-white.svg") no-repeat center / cover;
 }
