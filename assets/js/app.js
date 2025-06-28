@@ -1,124 +1,346 @@
-$(document).ready(() => {
-  class FormSubmit {
-    constructor(settings) {
-      this.settings = settings;
-      this.form = document.querySelector(settings.form);
-      this.formButton = document.querySelector(settings.button);
-      if (this.form) {
-        this.url = this.form.getAttribute("action");
+function setupMobileMenu() {
+  const menuToggle = document.querySelector(".cabecalho__menu-toggle");
+  const menuNav = document.querySelector(".cabecalho__menu-mobile--nav");
+  const closeButton = document.querySelector(".cabecalho__menu-mobile--fechar");
+  const navLinks = document.querySelectorAll(".cabecalho__navMobilelink");
+
+  if (!menuToggle || !menuNav || !closeButton) return;
+
+  const toggleMenu = () => {
+    const isActive = menuNav.classList.toggle("active");
+    document.body.classList.toggle("no-scroll", isActive);
+    menuToggle.setAttribute("aria-expanded", isActive);
+    menuToggle.setAttribute(
+      "aria-label",
+      isActive ? "Fechar menu" : "Abrir menu"
+    );
+  };
+
+  menuToggle.addEventListener("click", toggleMenu);
+  closeButton.addEventListener("click", toggleMenu);
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (menuNav.classList.contains("active")) {
+        toggleMenu();
       }
-      this.sendForm = this.sendForm.bind(this);
+    });
+  });
+}
+
+class FormSubmit {
+  constructor(settings) {
+    this.settings = settings;
+    this.form = document.querySelector(settings.form);
+    this.formButton = document.querySelector(settings.button);
+    if (!this.form) return;
+    this.originalButtonText = this.formButton.innerText;
+
+    this.url = this.form.getAttribute("action");
+    this.sendForm = this.sendForm.bind(this);
+  }
+
+  displaySuccess() {
+    this.form.innerHTML = this.settings.success;
+  }
+
+  displayError() {
+    this.form.innerHTML = this.settings.error;
+  }
+
+  resetFormButton() {
+    if (!this.formButton) return;
+    this.formButton.disabled = false;
+    this.formButton.innerText = this.originalButtonText;
+  }
+
+  getFormObject() {
+    const formObject = {};
+    const fields = this.form.querySelectorAll("[name]");
+    fields.forEach((field) => {
+      formObject[field.getAttribute("name")] = field.value;
+    });
+    return formObject;
+  }
+
+  onSubmission() {
+    this.formButton.disabled = true;
+    this.formButton.innerText = "Enviando...";
+  }
+
+  showError(field, message) {
+    const input = this.form.querySelector(`[name="${field}"]`);
+    const errorSpan = this.form.querySelector(`#error-${field}`);
+    if (input) input.classList.add("input-error");
+    if (errorSpan) errorSpan.innerText = message;
+  }
+
+  clearErrors() {
+    this.form
+      .querySelectorAll(".input-error")
+      .forEach((el) => el.classList.remove("input-error"));
+    this.form
+      .querySelectorAll(".error-message")
+      .forEach((el) => (el.innerText = ""));
+  }
+
+  validateForm() {
+    this.clearErrors();
+    const fields = this.getFormObject();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let isValid = true;
+
+    if (fields._honey) {
+      console.log("Honeypot triggered. Likely a bot.");
+      return false;
     }
 
-    displaySuccess() {
-      this.form.innerHTML = this.settings.success;
+    const submissionTime = new Date().getTime();
+    const loadTime = parseInt(
+      this.form.querySelector('[name="_time"]').value,
+      10
+    );
+    if (submissionTime - loadTime < 3000) {
+      console.log("Form submitted too quickly. Likely a bot.");
+      return false;
     }
 
-    displayError() {
-      this.form.innerHTML = this.settings.error;
+    if (!fields.nome || fields.nome.trim() === "") {
+      this.showError("nome", "O campo nome é obrigatório.");
+      isValid = false;
     }
 
-    getFormObject() {
-      const formObject = {};
-      const fields = this.form.querySelectorAll("[name]");
-      fields.forEach((field) => {
-        formObject[field.getAttribute("name")] = field.value;
+    if (!fields.email || fields.email.trim() === "") {
+      this.showError("email", "O campo email é obrigatório.");
+      isValid = false;
+    } else if (!emailRegex.test(fields.email)) {
+      this.showError("email", "Por favor, insira um email válido.");
+      isValid = false;
+    }
+
+    if (!fields.mensagem || fields.mensagem.trim() === "") {
+      this.showError("mensagem", "O campo de mensagem é obrigatório.");
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  async sendForm(event) {
+    event.preventDefault();
+
+    if (!this.validateForm()) {
+      return;
+    }
+
+    try {
+      this.onSubmission();
+      const formData = this.getFormObject();
+      delete formData._honey;
+      delete formData._time;
+
+      const response = await fetch(this.url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      return formObject;
-    }
 
-    onSubmission(event) {
-      event.preventDefault();
-      event.target.disabled = true;
-      event.target.innerText = "Enviando...";
-    }
-
-    checkFieldsSubmission() {
-      const fields = this.getFormObject();
-      let bool = true;
-      if (fields.nome == "" || !fields.nome) {
-        bool = false;
-      } else if (
-        fields.email == "" ||
-        !fields.email ||
-        !fields.email.includes("@")
-      ) {
-        bool = false;
-      } else if (fields.mensagem == "" || !fields.mensagem) {
-        bool = false;
+      if (response.ok) {
+        this.displaySuccess();
+      } else {
+        this.resetFormButton();
+        throw new Error(
+          `O servidor respondeu com o status: ${response.status}`
+        );
       }
-      return bool;
-    }
-
-    async sendForm(event) {
-      try {
-        if (this.checkFieldsSubmission()) {
-          this.onSubmission(event);
-          await fetch(this.url, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify(this.getFormObject()),
-          });
-          this.displaySuccess();
-        }
-      } catch (error) {
-        this.displayError();
-        throw new Error(error);
-      }
-    }
-
-    init() {
-      if (this.form) this.formButton.addEventListener("click", this.sendForm);
-      return this;
+    } catch (error) {
+      this.displayError();
+      this.resetFormButton();
+      console.error("Houve um problema com a requisição fetch:", error);
     }
   }
+
+  init() {
+    if (this.formButton) {
+      const timeField = this.form.querySelector('[name="_time"]');
+      if (timeField) timeField.value = new Date().getTime();
+
+      this.form.addEventListener("submit", this.sendForm);
+    }
+    return this;
+  }
+}
+
+function setupScrollAnimation() {
+  const animatedElements = document.querySelectorAll(".animate");
+  if (animatedElements.length === 0) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    }
+  );
+
+  animatedElements.forEach((element) => {
+    observer.observe(element);
+  });
+}
+
+function renderSkills() {
+  const skillsContainer = document.querySelector(".skills__cards");
+  if (!skillsContainer || typeof skillsData === "undefined") {
+    console.error(
+      "Container de habilidades ou dados das habilidades não encontrados."
+    );
+    return;
+  }
+
+  skillsContainer.innerHTML = "";
+
+  skillsData.forEach((skill) => {
+    const skillCard = document.createElement("div");
+    skillCard.className = "skills__card";
+
+    if (skill.customCardStyle) {
+      skillCard.style.cssText = skill.customCardStyle;
+    }
+
+    skillCard.innerHTML = `
+      ${skill.svg}
+      <h3 class="skills__cardTitulo" style="${skill.customTitleStyle || ""}">${
+      skill.title
+    }</h3>
+    `;
+
+    skillsContainer.appendChild(skillCard);
+  });
+}
+
+function renderEducations() {
+  const educationsContainer = document.querySelector(".formacoes__container");
+  if (!educationsContainer || typeof educationsData === "undefined") {
+    console.error(
+      "Container de formações ou dados das formações não encontrados."
+    );
+    return;
+  }
+
+  educationsContainer.innerHTML = "";
+
+  educationsData.forEach((education) => {
+    const educationArticle = document.createElement("article");
+    educationArticle.className = "formacao";
+
+    educationArticle.innerHTML = `
+      <div class="formacao__header">
+        <div style="display: flex; gap: 2rem; align-items: center">
+          <div class="${education.logoClass}"></div>
+          <h3 class="formacao__titulo">${education.title}</h3>
+        </div>
+        <h3 class="formacao__periodo">${education.period}</h3>
+      </div>
+      <div class="formacao__body">
+        <p>${education.description}</p>
+      </div>
+    `;
+
+    educationsContainer.appendChild(educationArticle);
+  });
+}
+
+function renderProjects() {
+  const projectsContainer = document.querySelector(".projetos__container");
+  if (!projectsContainer || typeof projectsData === "undefined") {
+    console.error(
+      "Container de projetos ou dados dos projetos não encontrados."
+    );
+    return;
+  }
+
+  projectsContainer.innerHTML = "";
+
+  const linkSVG = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M10.8333 9.16658L17.6667 2.33325" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.3333 5.66675V1.66675H14.3333" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9.16667 1.66675H7.5C3.33333 1.66675 1.66667 3.33341 1.66667 7.50008V12.5001C1.66667 16.6667 3.33333 18.3334 7.5 18.3334H12.5C16.6667 18.3334 18.3333 16.6667 18.3333 12.5001V10.8334" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `;
+
+  projectsData.forEach((project) => {
+    let linksHtml = "";
+    if (project.customLinks) {
+      linksHtml = project.customLinks
+        .map(
+          (link) => `
+        <a class="projeto__link" href="${link.url}" target="_blank" rel="noopener noreferrer">
+          ${linkSVG}
+          ${link.text}
+        </a>`
+        )
+        .join("");
+    } else {
+      linksHtml = `
+        <a class="projeto__link" href="${project.demoUrl}" target="_blank" rel="noopener noreferrer">
+          ${linkSVG}
+          Demo
+        </a>
+        <a class="projeto__link" href="${project.repoUrl}" target="_blank" rel="noopener noreferrer">
+          ${linkSVG}
+          Repositório
+        </a>`;
+    }
+
+    const imageContainer = `<div class="projeto__imagemContainer ${project.imageClass}"></div>`;
+
+    const textContainer = `
+      <div class="projeto__textoContainer">
+        ${project.id ? `<h3 class="projeto__numero">${project.id}</h3>` : ""}
+        <h3 class="projeto__titulo">${project.title}</h3>
+        <p class="projeto__descricao">${project.description}</p>
+        <div class="projeto__linksContainer">
+          ${linksHtml}
+        </div>
+      </div>
+    `;
+
+    const projectArticle = document.createElement("article");
+    projectArticle.className = "projeto animate";
+
+    const isEven = project.id && parseInt(project.id, 10) % 2 === 0;
+    projectArticle.innerHTML = isEven
+      ? textContainer + imageContainer
+      : imageContainer + textContainer;
+
+    projectsContainer.appendChild(projectArticle);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setupMobileMenu();
+  renderSkills();
+  renderEducations();
+  renderProjects();
+  setupScrollAnimation();
 
   const formSubmit = new FormSubmit({
     form: "[data-form]",
     button: "[data-button]",
-    success: "<h1 class='success'>Mensagem enviada!</h1>",
-    error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
+    success:
+      "<h1 class='success'>Mensagem enviada!</h1><p>Obrigado pelo seu contato. Retornarei em breve.</p>",
+    error:
+      "<h1 class='error'>Não foi possível enviar.</h1><p>Por favor, tente novamente mais tarde ou entre em contato por outro meio.</p>",
   });
   formSubmit.init();
-
-  $(".cabecalho .cabecalho__menu-mobile svg").on("click", () => {
-    console.log("click");
-    $(".cabecalho__menu-mobile--nav").css("display", "flex");
-  });
-
-  $(".cabecalho__menu-mobile--fechar").on("click", () => {
-    console.log("click");
-    $(".cabecalho__menu-mobile--nav").css("display", "none");
-  });
-
-  $(".cabecalho__navMobilelink").on("click", () => {
-    console.log("click");
-    $(".cabecalho__menu-mobile--nav").css("display", "none");
-  });
-
-  // Função para verificar se o elemento está visível na tela
-  function isElementInView(el) {
-    const rect = el.getBoundingClientRect();
-    const windowHeight =
-      window.innerHeight || document.documentElement.clientHeight;
-
-    const elementVisible = rect.top <= windowHeight * 0.75;
-
-    return elementVisible;
-  }
-
-  window.addEventListener("scroll", function () {
-    const elements = document.querySelectorAll(".animate");
-
-    elements.forEach(function (element) {
-      if (isElementInView(element)) {
-        element.classList.add("active");
-      } else {
-        element.classList.remove("active");
-      }
-    });
-  });
 });
