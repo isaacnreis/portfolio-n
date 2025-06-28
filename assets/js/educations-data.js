@@ -15,8 +15,8 @@ const educationsData = [
   },
   {
     logoClass: "formacao__logo-sei",
-    title: "Aprendizagem em Telecomunicações",
-    period: "Jun 2018-Jun 2019",
+    title: "Aprendizagem em Redes e Telecomunicações",
+    period: "Jun 2018-Jun 2020",
     description:
       "O curso de aprendizagem industrial em redes de telecomunicações inicia-se com uma introdução às telecomunicações, abordando os fundamentos e a evolução histórica, seguido por módulos que exploram a infraestrutura de redes, técnicas de comutação, tecnologias de transmissão, segurança, redes de acesso e gerenciamento. Ao completar o curso, os alunos deverão ter adquirido habilidades práticas e teóricas dos fundamentos para projetar, implementar e manter redes de telecomunicações, estando preparados para enfrentar os desafios do setor.",
   },

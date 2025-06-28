@@ -925,9 +925,11 @@ body .principal .outlined {
 #rodape {
   background: var(--bg-dark);
   color: var(--text-light);
+}
 
+.rodape-container {
   display: flex;
-  padding: 1.5rem 12.375rem;
+  padding: 1.5rem 2rem;
   align-items: center;
   justify-content: space-between;
 }
@@ -1101,7 +1103,7 @@ body .principal .outlined {
 
 @media screen and (max-width: 640px) {
   .cabecalho {
-    padding: 1rem 0;
+    padding: 1rem;
     flex-direction: row;
   }
 
@@ -1184,7 +1186,7 @@ body .principal .outlined {
   .banner {
     background-image: none;
     flex-direction: column;
-    padding: 2.5rem 1rem;
+    padding: 1rem;
   }
 
   .banner .banner__imagem {

@@ -6,23 +6,59 @@ function setupMobileMenu() {
 
   if (!menuToggle || !menuNav || !closeButton) return;
 
+  const focusableElements = menuNav.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  const firstFocusableElement = focusableElements[0];
+  const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+  const handleKeydown = (e) => {
+    if (e.key === "Escape") {
+      toggleMenu();
+    }
+
+    if (e.key === "Tab") {
+      if (e.shiftKey) {
+        // Shift + Tab
+        if (document.activeElement === firstFocusableElement) {
+          lastFocusableElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        // Tab
+        if (document.activeElement === lastFocusableElement) {
+          firstFocusableElement.focus();
+          e.preventDefault();
+        }
+      }
+    }
+  };
+
   const toggleMenu = () => {
     const isActive = menuNav.classList.toggle("active");
     document.body.classList.toggle("no-scroll", isActive);
     menuToggle.setAttribute("aria-expanded", isActive);
+    menuNav.setAttribute("aria-hidden", !isActive);
+
     menuToggle.setAttribute(
       "aria-label",
       isActive ? "Fechar menu" : "Abrir menu"
     );
+
+    if (isActive) {
+      document.addEventListener("keydown", handleKeydown);
+      closeButton.focus(); // Move o foco para o botão de fechar
+    } else {
+      document.removeEventListener("keydown", handleKeydown);
+      menuToggle.focus(); // Retorna o foco para o botão que abriu o menu
+    }
   };
 
   menuToggle.addEventListener("click", toggleMenu);
   closeButton.addEventListener("click", toggleMenu);
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      if (menuNav.classList.contains("active")) {
-        toggleMenu();
-      }
+      if (menuNav.classList.contains("active")) toggleMenu();
     });
   });
 }
@@ -188,7 +224,7 @@ function setupScrollAnimation() {
       });
     },
     {
-      threshold: 0.15,
+      threshold: 0.1,
     }
   );
 

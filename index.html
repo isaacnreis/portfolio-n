@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Meu nome é Isaac, desenvolvo aplicacções com interfaces modernas e de alta qualidade, concentrado em performance, fluidez, funcionalidade, responsividade."
+      content="Portfólio de Isaac Reis, desenvolvedor Full-Stack especializado na criação de aplicações web modernas e de alta qualidade, com foco em performance, responsividade e experiência do usuário."
     />
     <meta
       name="keywords"
@@ -29,7 +29,7 @@
   <body>
     <header class="cabecalho section">
       <img src="assets/img/logo.png" alt="Logo" class="cabecalho__logo" />
-      <nav class="cabecalho__nav">
+      <nav class="cabecalho__nav" aria-label="Navegação Principal">
         <a href="#sobreMim" class="cabecalho__link">Sobre Mim</a>
         <a href="#habilidades" class="cabecalho__link">Habilidades</a>
         <a href="#projetos" class="cabecalho__link">Projetos</a>
@@ -80,15 +80,26 @@
             />
           </svg>
         </button>
-        <div id="menu-mobile-nav" class="cabecalho__menu-mobile--nav">
+        <div
+          id="menu-mobile-nav"
+          class="cabecalho__menu-mobile--nav"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="menu-mobile-titulo"
+          aria-hidden="true"
+        >
           <button class="cabecalho__menu-mobile--fechar">Fechar</button>
-          <nav class="cabecalho__navMobile">
+          <nav
+            class="cabecalho__navMobile"
+            aria-label="Navegação Principal Mobile"
+          >
             <a href="#sobreMim" class="cabecalho__navMobilelink">Sobre Mim</a>
             <a href="#habilidades" class="cabecalho__navMobilelink"
               >Habilidades</a
             >
             <a href="#projetos" class="cabecalho__navMobilelink">Projetos</a>
             <a href="#contato" class="cabecalho__navMobilelink">Contato</a>
+            <h2 id="menu-mobile-titulo" class="sr-only">Navegação Principal</h2>
           </nav>
           <img
             src="assets/img/logo.png"
@@ -101,7 +112,7 @@
     </header>
 
     <main class="principal">
-      <section class="banner section">
+      <section class="banner section" aria-labelledby="banner-titulo">
         <img
           class="banner__imagem"
           src="assets/img/boy3.svg"
@@ -109,7 +120,7 @@
         />
         <div class="banner__textos">
           <div class="banner__titulo">
-            <div style="display: flex">
+            <div style="display: flex" id="banner-titulo">
               <h1 class="banner__titulo-fw400">Olá eu sou&nbsp;</h1>
               <h1 class="banner__titulo-fw800">Isaac Reis.</h1>
             </div>
@@ -119,18 +130,16 @@
             </div>
           </div>
           <div class="banner__descricao">
-            Desenvolvedor Full Stack com experiência prática em Vue.js, Vuetify,
-            TypeScript, PHP e MySQL, atuando desde o levantamento de requisitos
-            até a entrega de funcionalidades. Trabalho com foco na criação de
-            interfaces funcionais, consumo de APIs REST, manutenção de sistemas
-            legados e integração de soluções com Cordova para mobile. No
-            backend, utilizo PHP. Em paralelo, me dedico ao estudo de React.js,
-            Next.js, Nuxt.js, Laravel e C#, buscando expandir meu domínio
-            técnico. Tenho perfil proativo, comprometido com a qualidade do
-            código, usabilidade e experiência do usuário.
+            Desenvolvedor Full-Stack com sólida experiência em Vue.js,
+            TypeScript e PHP. Atuo no ciclo completo de desenvolvimento, desde o
+            levantamento de requisitos até a entrega de funcionalidades, com
+            foco na criação de interfaces responsivas, consumo de APIs REST e
+            manutenção de sistemas. Busco constantemente expandir minhas
+            habilidades com tecnologias como React, Next.js e Laravel, sempre
+            comprometido com a qualidade do código e a experiência do usuário.
           </div>
           <ul class="banner__redes">
-            <li>
+            <li role="listitem">
               <a
                 href="http://"
                 target="_blank"
@@ -152,7 +161,7 @@
                   /></svg
               ></a>
             </li>
-            <li>
+            <li role="listitem">
               <a
                 href="https://github.com/isaacnreis"
                 target="_blank"
@@ -173,7 +182,7 @@
                   /></svg
               ></a>
             </li>
-            <li>
+            <li role="listitem">
               <a
                 href="https://www.linkedin.com/in/isaacnreis/"
                 target="_blank"
@@ -195,7 +204,7 @@
                   /></svg
               ></a>
             </li>
-            <li>
+            <li role="listitem">
               <a
                 href="http://"
                 target="_blank"
@@ -219,21 +228,29 @@
         </div>
       </section>
 
-      <section class="skills animate section" id="habilidades">
-        <h2 class="skills__titulo">
+      <section
+        class="skills animate section"
+        id="habilidades"
+        aria-labelledby="habilidades-titulo"
+      >
+        <h2 class="skills__titulo" id="habilidades-titulo">
           Minhas <span class="skills__titulo-fw800">Habilidades</span>
         </h2>
         <div class="skills__cards"></div>
       </section>
 
-      <section class="formacoes">
-        <h2 class="formacoes__titulo">
+      <section class="formacoes" aria-labelledby="formacoes-titulo">
+        <h2 class="formacoes__titulo" id="formacoes-titulo">
           Minhas <span class="formacoes__titulo-fw800">Formações</span>
         </h2>
         <div class="formacoes__container"></div>
       </section>
 
-      <section class="sobreMim animate section" id="sobreMim">
+      <section
+        class="sobreMim animate section"
+        id="sobreMim"
+        aria-labelledby="sobre-mim-titulo"
+      >
         <div class="sobreMim__imagem">
           <img
             src="assets/img/aboutme-boy.svg"
@@ -241,18 +258,16 @@
           />
         </div>
         <div class="sobreMim-container">
-          <h2 class="sobreMim__titulo">
+          <h2 class="sobreMim__titulo" id="sobre-mim-titulo">
             Sobre <span class="sobreMim__titulo-fw800">Mim</span>
           </h2>
           <p>
-            Trabalho com uma variedade de tecnologias front-end e back-end,
-            utilizando frameworks modernos e adotando as melhores práticas para
-            assegurar a alta qualidade. Minhas habilidades englobam o
-            desenvolvimento responsivo de interfaces elegantes, aplicações
-            funcionais, integração de APIs, otimização de desempenho e a criação
-            de soluções escaláveis. Busco cultivar meu lado criativo,
-            alinhando-o à inovação, sempre mantendo em mente a utilidade dos
-            meus esforços na geração de valor.
+            Minha paixão é transformar ideias em realidade através do código.
+            Com um arsenal de tecnologias front-end e back-end, construo
+            interfaces elegantes e aplicações funcionais, sempre priorizando a
+            qualidade, performance e escalabilidade. Acredito que a melhor
+            solução técnica é aquela que alinha inovação com a geração de valor
+            real para o usuário.
           </p>
           <p>
             Sou formado em Análise e Desenvolvimento de Sistemas, com conclusão
@@ -270,15 +285,23 @@
         </div>
       </section>
 
-      <section class="projetos" id="projetos">
-        <h2 class="projetos__titulo">
+      <section class="projetos" id="projetos" aria-labelledby="projetos-titulo">
+        <h2 class="projetos__titulo" id="projetos-titulo">
           Meus <span class="projetos__titulo-fw800">Projetos</span>
         </h2>
         <div class="projetos__container"></div>
       </section>
 
-      <section class="contato animate section" id="contato">
-        <div class="form__container">
+      <section
+        class="contato animate section"
+        id="contato"
+        aria-labelledby="contato-titulo"
+      >
+        <div
+          class="form__container"
+          role="form"
+          aria-labelledby="contato-titulo"
+        >
           <form
             action="https://formsubmit.co/ajax/isaacreisn@gmail.com"
             method="POST"
@@ -341,7 +364,7 @@
                 Enviar
               </button>
               <ul class="banner__redes form__submitButton__redes">
-                <li>
+                <li role="listitem">
                   <a
                     href="http://"
                     target="_blank"
@@ -363,7 +386,7 @@
                       /></svg
                   ></a>
                 </li>
-                <li>
+                <li role="listitem">
                   <a
                     href="https://github.com/isaacnreis"
                     target="_blank"
@@ -384,7 +407,7 @@
                       /></svg
                   ></a>
                 </li>
-                <li>
+                <li role="listitem">
                   <a
                     href="https://www.linkedin.com/in/isaacnreis/"
                     target="_blank"
@@ -406,7 +429,7 @@
                       /></svg
                   ></a>
                 </li>
-                <li>
+                <li role="listitem">
                   <a
                     href="http://"
                     target="_blank"
@@ -432,16 +455,16 @@
         </div>
         <div class="contato__info">
           <div class="contato__info-titulos">
-            <h2 class="contato__info__titulo">
+            <h2 class="contato__info__titulo" id="contato-titulo">
               Vamos <span class="outlined">conversar</span> sobre
             </h2>
             <h2 class="contato__info__titulo">Algumas coisas especiais</h2>
           </div>
           <div class="contato__info-descricao">
             <p>
-              Procuro ultrapassar os limites da criatividade para criar
-              experiências interativas altamente envolventes, fáceis de usar e
-              memoráveis.
+              Meu objetivo é ir além do código para criar experiências digitais
+              intuitivas, envolventes e memoráveis, que realmente se conectem
+              com o usuário.
             </p>
           </div>
           <div class="contato__info-meios">
@@ -451,7 +474,11 @@
         </div>
       </section>
 
-      <section id="cta animate section" class="cta-section">
+      <section
+        id="cta animate section"
+        class="cta-section"
+        aria-labelledby="cta-titulo"
+      >
         <div class="container">
           <h2>Vamos Tirar Sua Ideia do Papel?</h2>
           <p>
@@ -497,46 +524,48 @@
       </section>
     </main>
 
-    <footer class="rodape" id="rodape">
-      <img src="assets/img/logo.png" alt="Logo" class="rodape__logo" />
-      <div style="display: flex; flex-direction: column; gap: 12px">
-        <h4>@ 2025 | Isaac N Reis</h4>
-        <a
-          href="https://www.figma.com/community/file/1318529372146880502"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="rodape__linkFigma"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
+    <footer class="rodape" id="rodape" role="contentinfo">
+      <div class="rodape-container">
+        <img src="assets/img/logo.png" alt="Logo" class="rodape__logo" />
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <h4>@ 2025 | Isaac N Reis</h4>
+          <a
+            href="https://www.figma.com/community/file/1318529372146880502"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rodape__linkFigma"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+            >
+              <path
+                d="M10.8333 9.16658L17.6667 2.33325"
+                stroke="#f8f9fa"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18.3333 5.66675V1.66675H14.3333"
+                stroke="#f8f9fa"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9.16667 1.66675H7.5C3.33333 1.66675 1.66667 3.33341 1.66667 7.50008V12.5001C1.66667 16.6667 3.33333 18.3334 7.5 18.3334H12.5C16.6667 18.3334 18.3333 16.6667 18.3333 12.5001V10.8334"
+                stroke="#f8f9fa"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Modelo Figma</a
           >
-            <path
-              d="M10.8333 9.16658L17.6667 2.33325"
-              stroke="#f8f9fa"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M18.3333 5.66675V1.66675H14.3333"
-              stroke="#f8f9fa"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M9.16667 1.66675H7.5C3.33333 1.66675 1.66667 3.33341 1.66667 7.50008V12.5001C1.66667 16.6667 3.33333 18.3334 7.5 18.3334H12.5C16.6667 18.3334 18.3333 16.6667 18.3333 12.5001V10.8334"
-              stroke="#f8f9fa"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          Modelo Figma</a
-        >
+        </div>
       </div>
     </footer>
 
