@@ -197,141 +197,133 @@ function setupScrollAnimation() {
   });
 }
 
-function renderSkills() {
-  const skillsContainer = document.querySelector(".skills__cards");
-  if (!skillsContainer || typeof skillsData === "undefined") {
-    console.error(
-      "Container de habilidades ou dados das habilidades não encontrados."
-    );
-    return;
+function createSkillElement(skill) {
+  const skillCard = document.createElement("div");
+  skillCard.className = "skills__card";
+  if (skill.customCardStyle) {
+    skillCard.style.cssText = skill.customCardStyle;
   }
-
-  skillsContainer.innerHTML = "";
-
-  skillsData.forEach((skill) => {
-    const skillCard = document.createElement("div");
-    skillCard.className = "skills__card";
-
-    if (skill.customCardStyle) {
-      skillCard.style.cssText = skill.customCardStyle;
-    }
-
-    skillCard.innerHTML = `
-      ${skill.svg}
-      <h3 class="skills__cardTitulo" style="${skill.customTitleStyle || ""}">${
-      skill.title
-    }</h3>
-    `;
-
-    skillsContainer.appendChild(skillCard);
-  });
+  skillCard.innerHTML = `
+    ${skill.svg}
+    <h3 class="skills__cardTitulo" style="${skill.customTitleStyle || ""}">${
+    skill.title
+  }</h3>
+  `;
+  return skillCard;
 }
 
-function renderEducations() {
-  const educationsContainer = document.querySelector(".formacoes__container");
-  if (!educationsContainer || typeof educationsData === "undefined") {
-    console.error(
-      "Container de formações ou dados das formações não encontrados."
-    );
-    return;
-  }
-
-  educationsContainer.innerHTML = "";
-
-  educationsData.forEach((education) => {
-    const educationArticle = document.createElement("article");
-    educationArticle.className = "formacao";
-
-    educationArticle.innerHTML = `
-      <div class="formacao__header">
-        <div style="display: flex; gap: 2rem; align-items: center">
-          <div class="${education.logoClass}"></div>
-          <h3 class="formacao__titulo">${education.title}</h3>
-        </div>
-        <h3 class="formacao__periodo">${education.period}</h3>
+function createEducationElement(education) {
+  const educationArticle = document.createElement("article");
+  educationArticle.className = "formacao";
+  educationArticle.innerHTML = `
+    <div class="formacao__header">
+      <div style="display: flex; gap: 2rem; align-items: center">
+        <div class="${education.logoClass}"></div>
+        <h3 class="formacao__titulo">${education.title}</h3>
       </div>
-      <div class="formacao__body">
-        <p>${education.description}</p>
-      </div>
-    `;
-
-    educationsContainer.appendChild(educationArticle);
-  });
+      <h3 class="formacao__periodo">${education.period}</h3>
+    </div>
+    <div class="formacao__body">
+      <p>${education.description}</p>
+    </div>
+  `;
+  return educationArticle;
 }
 
-function renderProjects() {
-  const projectsContainer = document.querySelector(".projetos__container");
-  if (!projectsContainer || typeof projectsData === "undefined") {
-    console.error(
-      "Container de projetos ou dados dos projetos não encontrados."
-    );
-    return;
+const linkSVG = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M10.8333 9.16658L17.6667 2.33325" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.3333 5.66675V1.66675H14.3333" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M9.16667 1.66675H7.5C3.33333 1.66675 1.66667 3.33341 1.66667 7.50008V12.5001C1.66667 16.6667 3.33333 18.3334 7.5 18.3334H12.5C16.6667 18.3334 18.3333 16.6667 18.3333 12.5001V10.8334" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+`;
+
+function createProjectElement(project) {
+  const projectArticle = document.createElement("article");
+  projectArticle.className = "projeto animate";
+
+  let linksHtml = "";
+  if (project.customLinks) {
+    linksHtml = project.customLinks
+      .map(
+        (link) => `
+      <a class="projeto__link" href="${link.url}" target="_blank" rel="noopener noreferrer">
+        ${linkSVG} ${link.text}
+      </a>`
+      )
+      .join("");
+  } else {
+    linksHtml = `
+      <a class="projeto__link" href="${project.demoUrl}" target="_blank" rel="noopener noreferrer">
+        ${linkSVG} Demo
+      </a>
+      <a class="projeto__link" href="${project.repoUrl}" target="_blank" rel="noopener noreferrer">
+        ${linkSVG} Repositório
+      </a>`;
   }
 
-  projectsContainer.innerHTML = "";
-
-  const linkSVG = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M10.8333 9.16658L17.6667 2.33325" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M18.3333 5.66675V1.66675H14.3333" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M9.16667 1.66675H7.5C3.33333 1.66675 1.66667 3.33341 1.66667 7.50008V12.5001C1.66667 16.6667 3.33333 18.3334 7.5 18.3334H12.5C16.6667 18.3334 18.3333 16.6667 18.3333 12.5001V10.8334" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+  const imageContainer = `<div class="projeto__imagemContainer ${project.imageClass}"></div>`;
+  const textContainer = `
+    <div class="projeto__textoContainer">
+      ${project.id ? `<h3 class="projeto__numero">${project.id}</h3>` : ""}
+      <h3 class="projeto__titulo">${project.title}</h3>
+      <p class="projeto__descricao">${project.description}</p>
+      <div class="projeto__linksContainer">${linksHtml}</div>
+    </div>
   `;
 
-  projectsData.forEach((project) => {
-    let linksHtml = "";
-    if (project.customLinks) {
-      linksHtml = project.customLinks
-        .map(
-          (link) => `
-        <a class="projeto__link" href="${link.url}" target="_blank" rel="noopener noreferrer">
-          ${linkSVG}
-          ${link.text}
-        </a>`
-        )
-        .join("");
-    } else {
-      linksHtml = `
-        <a class="projeto__link" href="${project.demoUrl}" target="_blank" rel="noopener noreferrer">
-          ${linkSVG}
-          Demo
-        </a>
-        <a class="projeto__link" href="${project.repoUrl}" target="_blank" rel="noopener noreferrer">
-          ${linkSVG}
-          Repositório
-        </a>`;
+  const isEven = project.id && parseInt(project.id, 10) % 2 === 0;
+  projectArticle.innerHTML = isEven
+    ? textContainer + imageContainer
+    : imageContainer + textContainer;
+
+  return projectArticle;
+}
+
+function renderContent({ containerSelector, data, renderItem, errorMsg }) {
+  const container = document.querySelector(containerSelector);
+  if (!container || typeof data === "undefined") {
+    console.error(errorMsg);
+    return;
+  }
+
+  container.innerHTML = "";
+  const fragment = document.createDocumentFragment();
+  data.forEach((item) => {
+    const element = renderItem(item);
+    if (element) {
+      fragment.appendChild(element);
     }
-
-    const imageContainer = `<div class="projeto__imagemContainer ${project.imageClass}"></div>`;
-
-    const textContainer = `
-      <div class="projeto__textoContainer">
-        ${project.id ? `<h3 class="projeto__numero">${project.id}</h3>` : ""}
-        <h3 class="projeto__titulo">${project.title}</h3>
-        <p class="projeto__descricao">${project.description}</p>
-        <div class="projeto__linksContainer">
-          ${linksHtml}
-        </div>
-      </div>
-    `;
-
-    const projectArticle = document.createElement("article");
-    projectArticle.className = "projeto animate";
-
-    const isEven = project.id && parseInt(project.id, 10) % 2 === 0;
-    projectArticle.innerHTML = isEven
-      ? textContainer + imageContainer
-      : imageContainer + textContainer;
-
-    projectsContainer.appendChild(projectArticle);
   });
+
+  container.appendChild(fragment);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   setupMobileMenu();
-  renderSkills();
-  renderEducations();
-  renderProjects();
+
+  renderContent({
+    containerSelector: ".skills__cards",
+    data: skillsData,
+    renderItem: createSkillElement,
+    errorMsg:
+      "Container de habilidades ou dados das habilidades não encontrados.",
+  });
+
+  renderContent({
+    containerSelector: ".formacoes__container",
+    data: educationsData,
+    renderItem: createEducationElement,
+    errorMsg: "Container de formações ou dados das formações não encontrados.",
+  });
+
+  renderContent({
+    containerSelector: ".projetos__container",
+    data: projectsData,
+    renderItem: createProjectElement,
+    errorMsg: "Container de projetos ou dados dos projetos não encontrados.",
+  });
+
   setupScrollAnimation();
 
   const formSubmit = new FormSubmit({
