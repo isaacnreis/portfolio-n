@@ -1,5 +1,12 @@
 const educationsData = [
   {
+    logoClass: "formacao__logo-puc",
+    title: "Pós-graduação em UX-Engineering",
+    period: "Jul 2025-Jul 2027 (prev.)",
+    description:
+      "O curso de Pós-graduação em UX Engineering da PUC Minas capacita profissionais para atuar na intersecção entre User Experience (UX) Design e Engenharia de Software. O programa foca no desenvolvimento de habilidades técnicas e estratégicas para a criação de produtos digitais que são funcionais, eficientes, intuitivos e acessíveis, garantindo uma excelente experiência ao usuário através da aplicação de design centrado no usuário, pesquisa, prototipação e validação.",
+  },
+  {
     logoClass: "formacao__logo-uni",
     title: "Análise e Desenvolvimento de Sistemas",
     period: "Jun 2022-Jul 2024",

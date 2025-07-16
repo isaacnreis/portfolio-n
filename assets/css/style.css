@@ -407,6 +407,15 @@ body .principal .outlined {
   align-self: stretch;
 }
 
+.formacao__header .formacao__logo-puc {
+  background-image: url("./../img/pucminas-logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  width: 2rem;
+  height: 2rem;
+}
 .formacao__header .formacao__logo-uni {
   background-image: url("./../img/unifatecie-logo.jpg");
   background-repeat: no-repeat;
